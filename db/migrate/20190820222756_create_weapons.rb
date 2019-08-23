@@ -6,7 +6,6 @@ class CreateWeapons < ActiveRecord::Migration[6.0]
       t.integer :damage_max
       t.integer :strength
       t.string :element
-      t.float :element_damage
 
       t.timestamps
     end

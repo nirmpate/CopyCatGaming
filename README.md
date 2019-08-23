@@ -7,17 +7,18 @@ Things you may want to cover:
 
 ## System dependencies
 
-* ruby > '2.6.3'
-* node > '12.1.0'
-* npm > '6.10.0'
+* ruby >= '2.6.3'
+* node >= '12.1.0'
+* yarn >= '1.17.3
 
 
 ## Running local
 
 * bundle install
 
+* yarn install
+
 * bundle exec rake db:create db:migrate db:seed
 
-* npm install
 
 * bundle exec rails s 
