@@ -48,7 +48,7 @@ class App extends Component {
     return (
       <ApolloProvider client={this.client}>
       <div className="container mx-auto my-8">
-        <h1 className="font-bold text-xl">Characters</h1>
+        <h1 className="font-bold text-xl m-4">Characters</h1>
       </div>
       <div className="container mx-auto">
               {this.state.selectedCharacter ?

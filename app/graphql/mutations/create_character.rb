@@ -28,14 +28,22 @@ module Mutations
         aps:,
         damage_range:
       )
-        character = Character.create(
-          name: name,
-          level: level
-        )
-
-        character.create_weapon(damage_min: damage_min, damage_max: damage_max, strength: strength, element: element, element_damage: element_damage)
-        character.weapon.create_weapon_type(name: weapon_name, aps: aps, damage_range: damage_range) 
-
+      character = Character.create!(
+        name: name,
+        level: level,
+        weapon_attributes: {
+          damage_min:damage_min, 
+          damage_max: damage_max, 
+          strength: strength, 
+          element: element, 
+          element_damage: element_damage, 
+          weapon_type_attributes: {
+              name: weapon_name, 
+              aps: aps, 
+              damage_range: damage_range
+          }
+        } 
+      )
         if character.save
             {
                 character: character,

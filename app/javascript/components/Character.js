@@ -60,7 +60,7 @@ const character = (props) => {
 
     return (
         <div>
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onClick={props.selectCharacter.bind(this, null)}>
+        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-4" onClick={props.selectCharacter.bind(this, null)}>
             Back
         </button>
 
@@ -82,9 +82,9 @@ const character = (props) => {
                 </thead>
                 <tbody>
 
-                    {table.map(attack => {
+                    {table.map((attack,i) => {
                         return (
-                        <tr>
+                        <tr key={i}>
                             <th className="px-4 py-4">{attack.name}</th>
                             <th className="px-4 py-4"> {parseFloat(attack.minDamage.toFixed(3))}</th>
                             <th className="px-4 py-4"> {parseFloat(attack.maxDamage.toFixed(3))}</th>
