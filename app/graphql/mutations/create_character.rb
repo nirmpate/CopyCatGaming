@@ -9,8 +9,6 @@ module Mutations
       argument :element, String, required: true
       argument :element_damage, Float, required: true
       argument :weapon_name, String, required: true
-      argument :aps, Float, required: true
-      argument :damage_range, String, required: true
 
       field :character, Types::CharacterType, null: false
       field :errors, [String], null: false
@@ -24,9 +22,7 @@ module Mutations
         strength:, 
         element:,
         weapon_name:,
-        element_damage:,
-        aps:,
-        damage_range:
+        element_damage:
       )
       character = Character.create!(
         name: name,
@@ -37,11 +33,7 @@ module Mutations
           strength: strength, 
           element: element, 
           element_damage: element_damage, 
-          weapon_type_attributes: {
-              name: weapon_name, 
-              aps: aps, 
-              damage_range: damage_range
-          }
+          weapon_type: WeaponType.find_by(name: weapon_name.downcase)
         } 
       )
         if character.save

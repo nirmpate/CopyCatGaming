@@ -10,9 +10,7 @@ const CREATE_CHARACTER = gql`
         $strength: Int!,
         $element: String!,
         $elementDamage: Float!,
-        $weaponName: String!,
-        $aps: Float!,
-        $damageRange: String!
+        $weaponName: String!
     ) { createCharacter(
         name: $name,
         level: $level,
@@ -21,9 +19,7 @@ const CREATE_CHARACTER = gql`
         strength: $strength,
         element: $element,
         elementDamage: $elementDamage,
-        weaponName: $weaponName,
-        aps: $aps,
-        damageRange: $damageRange
+        weaponName: $weaponName
     )
     {
         character {
@@ -40,8 +36,6 @@ const CREATE_CHARACTER = gql`
             weaponType {
                 id
                 name
-                aps
-                damageRange
             }
         }
         }
@@ -60,8 +54,6 @@ class CreateCharacter extends Component {
         strength: 0, 
         element: 'physical',
         weaponName: 'mace',
-        aps: 1,
-        damageRange: 'low',
         elementDamage: 0,
         showWeaponDamage: false
       }
@@ -70,16 +62,16 @@ class CreateCharacter extends Component {
         
         switch (e.target.value.toLowerCase()) {
             case 'mace':
-                this.setState({ weaponName: e.target.value, aps: 1, damageRange: 'low'})
+                this.setState({ weaponName: e.target.value})
                 break;
             case 'axe':
-                this.setState({ weaponName: e.target.value, aps: 1.2, damageRange: 'average'})
+                this.setState({ weaponName: e.target.value})
                 break;
             case 'sword':
-                this.setState({ weaponName: e.target.value, aps: 1.4, damageRange: 'high'})
+                this.setState({ weaponName: e.target.value})
                 break;
             default:
-                this.setState({ weaponName: e.target.value, aps: 1, damageRange: 'low'})
+                this.setState({ weaponName: e.target.value})
                 return;
         }
       }
@@ -105,8 +97,6 @@ class CreateCharacter extends Component {
             strength: 0, 
             element: 'physical',
             weaponName: 'mace',
-            aps: 1,
-            damageRange: 'low',
             elementDamage: 0,
             showWeaponDamage: false
         });

@@ -5,7 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+WeaponType.create!(name: 'mace', aps: 1, damage_range: 'high')
+WeaponType.create!(name: 'axe', aps: 1.2, damage_range: 'average')
+WeaponType.create!(name: 'sword', aps: 1.4, damage_range: 'low')
 
 Character.create!(name: 'Lena the Warrior', 
     level: 10, 
@@ -15,11 +17,7 @@ Character.create!(name: 'Lena the Warrior',
         strength: 20, 
         element: 'fire', 
         element_damage: 0.1, 
-        weapon_type_attributes: {
-            name: 'axe', 
-            aps: 1.2, 
-            damage_range: 'high'
-        }
+        weapon_type: WeaponType.find_by(name: 'axe')
     },
 
 )

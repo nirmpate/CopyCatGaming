@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_23_201114) do
+ActiveRecord::Schema.define(version: 2019_08_25_193203) do
 
   create_table "attacks", force: :cascade do |t|
     t.decimal "aps_multiplier"
@@ -29,13 +29,11 @@ ActiveRecord::Schema.define(version: 2019_08_23_201114) do
   end
 
   create_table "weapon_types", force: :cascade do |t|
-    t.integer "weapon_id", null: false
     t.string "name"
     t.decimal "aps"
     t.string "damage_range"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["weapon_id"], name: "index_weapon_types_on_weapon_id"
   end
 
   create_table "weapons", force: :cascade do |t|
@@ -47,9 +45,12 @@ ActiveRecord::Schema.define(version: 2019_08_23_201114) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.float "element_damage"
+    t.integer "weapon_type_id"
+    t.index "\"weapon_id\"", name: "index_weapons_on_weapon_id"
     t.index ["character_id"], name: "index_weapons_on_character_id"
+    t.index ["weapon_type_id"], name: "index_weapons_on_weapon_type_id"
   end
 
-  add_foreign_key "weapon_types", "weapons"
   add_foreign_key "weapons", "characters"
+  add_foreign_key "weapons", "weapon_types"
 end
