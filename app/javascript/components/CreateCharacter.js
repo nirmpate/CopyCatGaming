@@ -97,18 +97,19 @@ class CreateCharacter extends Component {
           const {showWeaponDamage, ...formData } = this.state;
           console.log(formData)
           createCharacter({ variables: formData });
-        //   this.setState({
-        //     name: '', 
-        //     level: 0, 
-        //     damageMin: 0, 
-        //     damageMax: 0, 
-        //     strength: 0, 
-        //     element: '',
-        //     elementDamage: 0,
-        //     weaponName: 'mace',
-        //     aps: 0,
-        //     damageRange: 'low'
-        // });
+          this.setState({
+            name: '', 
+            level: 0, 
+            damageMin: 0, 
+            damageMax: 0, 
+            strength: 0, 
+            element: 'physical',
+            weaponName: 'mace',
+            aps: 1,
+            damageRange: 'low',
+            elementDamage: 0,
+            showWeaponDamage: false
+        });
       }
 
     render() {
@@ -241,7 +242,7 @@ class CreateCharacter extends Component {
                     </div>
  
                     <button
-                        className="bg-blue-500 text-white py-2 px-4 rounded"
+                        className="bg-green-500 text-white py-2 px-4 rounded"
                         type="submit">
                         Create
                     </button>

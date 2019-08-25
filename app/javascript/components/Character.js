@@ -60,7 +60,7 @@ const character = (props) => {
     })
     return (
         <div>
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-4" onClick={props.selectCharacter.bind(this, null)}>
+        <button className="bg-green-500 hover:bg-green-400 text-white font-bold py-2 px-4 rounded m-4" onClick={props.selectCharacter.bind(this, null)}>
             Back
         </button>
 
@@ -77,10 +77,10 @@ const character = (props) => {
             <table className="w-full md:w-1/2">
                 <thead>
                     <tr>
-                        <th className="px-4 pb-4"></th>
-                        <th className="px-4 pb-4">Minimum Damage</th>
-                        <th className="px-4 pb-4">Maximum Damage</th>
-                        <th className="px-4 pb-4">DPS</th>
+                        <th className="px-4 pb-4 border border-solid border-transparent"></th>
+                        <th className="px-4 py-4 bg-green-400 border-green-400 border border-solid">Minimum Damage</th>
+                        <th className="px-4 py-4 bg-green-400 border-green-400 border border-solid">Maximum Damage</th>
+                        <th className="px-4 py-4 bg-green-400 border-green-400 border border-solid">DPS</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -88,10 +88,10 @@ const character = (props) => {
                     {table.map((attack,i) => {
                         return (
                         <tr key={i}>
-                            <th className="px-4 py-4">{attack.type}</th>
-                            <th className="px-4 py-4 border-solid border-4"> {parseFloat(attack.minDamage.toFixed(3))}</th>
-                            <th className="px-4 py-4 border-solid border-4"> {parseFloat(attack.maxDamage.toFixed(3))}</th>
-                            <th className="px-4 py-4 border-solid border-4"> {attack.aps}</th>
+                            <th className="px-4 py-4 bg-green-200">{attack.type}</th>
+                            <th className="px-4 py-4 border-solid border border-black"> {parseFloat(attack.minDamage.toFixed(3))}</th>
+                            <th className="px-4 py-4 border-solid border border-black"> {parseFloat(attack.maxDamage.toFixed(3))}</th>
+                            <th className="px-4 py-4 border-solid border border-black"> {attack.aps}</th>
                         </tr>
                         )
                     })}
