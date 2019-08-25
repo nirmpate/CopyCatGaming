@@ -23,9 +23,6 @@ Character.create!(name: 'Lena the Warrior',
     },
 
 )
-    
-# character.create_weapon(damage_min:50, damage_max: 65, strength: 20, element: 'fire', element_damage: 0.1)
-# character.weapon.create_weapon_type(name: 'axe', aps: 1.2, damage_range: 'average') 
 
 attacks = Attack.create([
     {name: 'Plain-Old Punch', aps_multiplier: 1, dmg_multiplier: 1, element: 'physical'},
