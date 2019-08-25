@@ -69,7 +69,7 @@ const character = (props) => {
                 <h1 className="font-bold text-xl mb-2 capitalize">{props.character.name}</h1>
                 <p> Level: { props.character.level }</p>
                 <p className="capitalize"> Weapon: { props.character.weapon.weaponType.name } </p>
-                <p>Element: {props.character.weapon.element}</p>
+                <p className="capitalize">Element: {props.character.weapon.element}</p>
                 <p>Element Damage: {props.character.weapon.elementDamage}</p>
 
             </div>

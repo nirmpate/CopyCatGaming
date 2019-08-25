@@ -138,6 +138,8 @@ class CreateCharacter extends Component {
                         type="number"
                         value={this.state.level}
                         placeholder="0"
+                        min="0"
+                        max="90"
                         required={true}
                         onChange={e => this.setState({ level: parseInt(e.target.value, 10) })} />
                     </div>
