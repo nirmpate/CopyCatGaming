@@ -18,7 +18,7 @@ Things you may want to cover:
 
 * yarn install
 
-* bundle exec rake db:create rails db:schema:load db:seed
+* bundle exec rake db:create db:schema:load db:seed
 
 
 * bundle exec rails s 
