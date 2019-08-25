@@ -43,6 +43,7 @@ const character = (props) => {
         return parseFloat(aps.toFixed(3))
     }
 
+    // Create table for each attack object
     const table = props.attacks.map((attack)=> {
         return {
             type: attack.name,
@@ -57,27 +58,29 @@ const character = (props) => {
             }
         }
     })
-
     return (
         <div>
         <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-4" onClick={props.selectCharacter.bind(this, null)}>
             Back
         </button>
 
-        <div className="rounded overflow-hidden shadow-lg mt-8 px-6 py-4 flex mb-4">
-            <div className="w-1/4">
+        <div className="rounded overflow-hidden shadow-lg px-2 mt-4 md:mt-8 md:px-6 py-4 flex mb-4 flex-wrap">
+            <div className="w-full md:w-1/4">
                 <h1 className="font-bold text-xl mb-2 capitalize">{props.character.name}</h1>
                 <p> Level: { props.character.level }</p>
                 <p className="capitalize"> Weapon: { props.character.weapon.weaponType.name } </p>
+                <p>Element: {props.character.weapon.element}</p>
+                <p>Element Damage: {props.character.weapon.elementDamage}</p>
+
             </div>
             
-            <table className="w-1/2">
+            <table className="w-full md:w-1/2">
                 <thead>
                     <tr>
-                        <th className="px-4 py-4"></th>
-                        <th className="px-4 py-4">Minimum Damage</th>
-                        <th className="px-4 py-4">Maximum Damage</th>
-                        <th className="px-4 py-4">DPS</th>
+                        <th className="px-4 pb-4"></th>
+                        <th className="px-4 pb-4">Minimum Damage</th>
+                        <th className="px-4 pb-4">Maximum Damage</th>
+                        <th className="px-4 pb-4">DPS</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -85,10 +88,10 @@ const character = (props) => {
                     {table.map((attack,i) => {
                         return (
                         <tr key={i}>
-                            <th className="px-4 py-4">{attack.name}</th>
-                            <th className="px-4 py-4"> {parseFloat(attack.minDamage.toFixed(3))}</th>
-                            <th className="px-4 py-4"> {parseFloat(attack.maxDamage.toFixed(3))}</th>
-                            <th className="px-4 py-4"> {attack.aps}</th>
+                            <th className="px-4 py-4">{attack.type}</th>
+                            <th className="px-4 py-4 border-solid border-4"> {parseFloat(attack.minDamage.toFixed(3))}</th>
+                            <th className="px-4 py-4 border-solid border-4"> {parseFloat(attack.maxDamage.toFixed(3))}</th>
+                            <th className="px-4 py-4 border-solid border-4"> {attack.aps}</th>
                         </tr>
                         )
                     })}
