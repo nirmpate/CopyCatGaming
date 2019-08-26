@@ -133,16 +133,6 @@ class CreateCharacter extends Component {
                         required={true}
                         onChange={e => this.setState({ level: parseInt(e.target.value, 10) })} />
                     </div>
-                    <div className="mb-6 w-full md:w-1/2 px-3 mb-6">
-                        <label>Max Character Damage</label>
-                        <input
-                        className="border rounded w-full py-2 px-3"
-                        type="number"
-                        value={this.state.damageMax}
-                        placeholder="0"
-                        required={true}
-                        onChange={e => this.setState({ damageMax: parseInt(e.target.value, 10) })} />
-                    </div>
 
                     <div className="mb-4 w-full md:w-1/2 px-3 mb-6">
                         <label>Minimum Character Damage</label>
@@ -151,8 +141,22 @@ class CreateCharacter extends Component {
                         type="number"
                         placeholder="0"
                         value={this.state.damageMin}
+                        max={this.state.damageMax}
                         required={true}
+                        
                         onChange={e => this.setState({ damageMin: parseInt(e.target.value, 10) })} />
+                    </div>
+
+                    <div className="mb-6 w-full md:w-1/2 px-3 mb-6">
+                        <label>Max Character Damage</label>
+                        <input
+                        className="border rounded w-full py-2 px-3"
+                        type="number"
+                        value={this.state.damageMax}
+                        placeholder="0"
+                        required={true}
+                        min={this.state.damageMin}
+                        onChange={e => this.setState({ damageMax: parseInt(e.target.value, 10) })} />
                     </div>
 
                     <div className="mb-6 md:w-1/2 px-3 mb-6">
