@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
+
 const CREATE_CHARACTER = gql`
     mutation CreateCharacter(
         $name: String!,
